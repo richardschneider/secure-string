@@ -12,7 +12,7 @@ the help of [semantic-release](https://github.com/semantic-release/semantic-rele
 ## Features
 
 - The text is stored in an encrypted buffer
-- The plain text is only available in a 'callback'
+- The plain text is only available in a `callback`
 
 ## Getting started
 
@@ -24,8 +24,16 @@ Install with [npm](http://blog.npmjs.org/post/85484771375/how-to-install-npm)
 
 ### Usage
 
-    const SecureString = require('secure-string')
-    const password = new SecureString()
+```js
+const SecureString = require('secure-string')
+const password = new SecureString()
+password.appendCodePoint(0x41)
+password.value(plainText => {
+  console.log('the passowrd is', plainText.toString())
+})
+```
+
+See the [spec](./test/secure-string.spec.js) for more examples.
 
 # License
 The [MIT license](./LICENSE).

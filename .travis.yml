@@ -1,0 +1,23 @@
+sudo: false
+language: node_js
+
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
+    - gh-pages
+
+env: CI=true
+
+node_js:
+  - stable
+
+cache:
+  directories:
+    - node_modules
+
+before_script:
+  - npm prune
+
+after_success:
+#  - gulp coverage
+#  - npm run semantic-release

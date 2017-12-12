@@ -56,6 +56,17 @@ describe('SecureString', () => {
     })
   })
 
+  it('can accept long strings', () => {
+    const password = new SecureString()
+    const n = 1024
+    for (let i = 0; i < n; ++i) {
+      password.appendCodePoint(0x41)
+    }
+    password.value(plainText => {
+      expect(plainText.toString()).to.equal(Array(n+1).join('A'))
+    })
+  })
+
   it('can be cleared', () => {
     const password = new SecureString()
     password.appendCodePoint(0x41)

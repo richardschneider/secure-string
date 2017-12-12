@@ -4,7 +4,9 @@
   "description": "Text that should be kept confidential",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "cover": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec",
+    "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "repository": {
     "type": "git",
@@ -21,7 +23,10 @@
   "homepage": "https://github.com/richardschneider/secure-string#readme",
   "devDependencies": {
     "chai": "^4.1.2",
+    "coveralls": "^3.0.0",
     "dirty-chai": "^2.0.1",
-    "mocha": "^4.0.1"
+    "istanbul": "^0.4.5",
+    "mocha": "^4.0.1",
+    "mocha-lcov-reporter": "^1.3.0"
   }
 }

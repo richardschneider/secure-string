@@ -1,5 +1,7 @@
 # secure-string
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/richardschneider/secure-string.svg)](https://greenkeeper.io/)
+
 [![Travis build status](https://travis-ci.org/richardschneider/secure-string.svg)](https://travis-ci.org/richardschneider/secure-string)
 [![Coverage Status](https://coveralls.io/repos/github/richardschneider/secure-string/badge.svg?branch=master)](https://coveralls.io/github/richardschneider/secure-string?branch=master)
 [![npm version](https://badge.fury.io/js/secure-string.svg)](https://badge.fury.io/js/secure-string) 

@@ -24,6 +24,7 @@
     "url": "https://github.com/richardschneider/secure-string/issues"
   },
   "homepage": "https://github.com/richardschneider/secure-string#readme",
+  "files": [ "dist", "src", "test" ],
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",

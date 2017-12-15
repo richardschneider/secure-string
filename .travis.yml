@@ -18,6 +18,10 @@ cache:
 before_script:
   - npm prune
 
+script:
+  - npm run build
+  - npm run test
+  
 after_success:
   - npm run coveralls
   - npm run semantic-release

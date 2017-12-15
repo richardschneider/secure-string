@@ -5,7 +5,7 @@
 const chai = require('chai')
 const expect = chai.expect
 chai.use(require('dirty-chai'))
-const SecureString = require('..')
+const SecureString = require('../src/secure-string')
 
 describe('SecureString', () => {
   it('created with new', () => {

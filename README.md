@@ -18,7 +18,8 @@ the help of [semantic-release](https://github.com/semantic-release/semantic-rele
 
 ## Getting started
 
-**secure-string** is available for [Node.js](https://nodejs.org).
+**secure-string** is available for [Node.js](https://nodejs.org) and the browser.  Most modern browsers are supported.  If you want to know if your browser is compatible, run the [online test suite](https://rawgit.com/richardschneider/secure-string/master/test/index.html).
+
 
 Install with [npm](http://blog.npmjs.org/post/85484771375/how-to-install-npm)
 
@@ -52,6 +53,14 @@ SecureString.ask('password', (err, answer) => {
   })
 })
 ```
+
+## Browser
+
+Include the package from the [unpkg CDN](https://unpkg.com)
+
+    <script src="https://unpkg.com/secure-string/dist/bundle.min"></script>
+
+This creates `SecureString` as a global object, or `define` it if you are using [AMD](https://en.wikipedia.org/wiki/Asynchronous_module_definition).
 
 # License
 The [MIT license](./LICENSE).

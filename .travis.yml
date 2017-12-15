@@ -21,6 +21,7 @@ before_script:
 script:
   - npm run build
   - npm run test
+  - npm run test:browser
   
 after_success:
   - npm run coveralls

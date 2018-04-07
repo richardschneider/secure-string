@@ -13,7 +13,7 @@ describe('ask', () => {
     const password = new SecureString()
     expect(SecureString.ask).to.exist()
   })
-  
+
   it.skip('returns a secure string', done => {
     SecureString.ask('password', (err, answer) => {
       expect(err).to.not.exist()

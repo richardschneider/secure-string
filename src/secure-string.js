@@ -9,7 +9,7 @@ function SecureString () {
   let encryptedValue
   let key = crypto.randomBytes(cipherSize)
   let iv = crypto.randomBytes(16)
-  
+
   function value(fn) {
     const cipher = crypto.createDecipheriv(cipherName, key, iv)
     const a = cipher.update(encryptedValue)
@@ -23,7 +23,7 @@ function SecureString () {
       crypto.randomFillSync(c)
     }
   }
-  
+
   function clear() {
     if (encryptedValue) {
       crypto.randomFillSync(encryptedValue)
@@ -31,27 +31,34 @@ function SecureString () {
     const cipher = crypto.createCipheriv(cipherName, key, iv)
     encryptedValue = Buffer.concat([cipher.update(''), cipher.final()])
   }
-  
+
   function appendCodePoint (codePoint) {
     let cipher = crypto.createDecipheriv(cipherName, key, iv)
     const a = cipher.update(encryptedValue)
     const b = cipher.final()
-    
+
     cipher = crypto.createCipheriv(cipherName, key, iv)
     encryptedValue = Buffer.concat([
-      cipher.update(a), 
+      cipher.update(a),
       cipher.update(b),
       cipher.update(Buffer.from(String.fromCodePoint(codePoint))),
       cipher.final()])
     crypto.randomFillSync(a)
     crypto.randomFillSync(b)
   }
-  
+
   clear()
-  
+
   this.value = value
   this.appendCodePoint = appendCodePoint
   this.clear = clear
+}
+
+SecureString.fromText = function(text) {
+  const ss = new SecureString()
+  Buffer.from(text).forEach(ss.appendCodePoint)
+  text = null
+  return ss
 }
 
 module.exports = SecureString

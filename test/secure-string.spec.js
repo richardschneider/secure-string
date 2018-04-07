@@ -12,7 +12,7 @@ describe('SecureString', () => {
     const password = new SecureString()
     expect(password).to.be.instanceOf(SecureString)
   })
-  
+
   it('plain text is a buffer', () => {
     const password = new SecureString()
     password.value(plainText => {
@@ -21,7 +21,7 @@ describe('SecureString', () => {
       expect(plainText.toString()).to.equal('')
     })
   })
-  
+
   it('plain text is a UTF-8 encoded buffer', () => {
     const password = new SecureString()
     password.appendCodePoint(0x41)
@@ -77,5 +77,12 @@ describe('SecureString', () => {
     password.value(plainText => {
       expect(plainText.toString()).to.equal('')
     })
+  })
+
+  it('can be created from a static method', () => {
+    const secret = 'is it really secure?'
+    const password = SecureString.fromText(secret)
+    password.value(plainText =>
+      expect(plainText.toString()).to.be.equal(secret))
   })
 })

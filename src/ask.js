@@ -16,6 +16,7 @@ function ask (prompt, callback) {
   function keypress(s, key) {
     if (s === '\r' || s === '\n') {
       stdin.removeListener('keypress', keypress)
+      rl.close()
       callback(null, secret)
     } else if (s !== undefined) {
       secret.appendCodePoint(s.codePointAt(0))
